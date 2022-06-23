@@ -7,7 +7,7 @@ import java.util.Date;
 public class PersonVaccine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "_idPersonVaccine", nullable = false,unique = true)
+    @Column(name = "_idPersonVaccine", nullable = false, unique = true)
     private Long id;
 
     private Long vacineId;
