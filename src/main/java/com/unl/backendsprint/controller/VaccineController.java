@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,13 +31,13 @@ public class VaccineController {
     }
 
     @PostMapping
-    public ResponseEntity<VaccineDto> create(@RequestBody VaccineDto data){
+    public ResponseEntity<VaccineDto> create(@RequestBody  @Valid VaccineDto data){
         log.info("Create Vaccine. Vaccine = " + data);
         return ResponseEntity.ok(this.vaccineService.create(data));
     }
 
     @PutMapping("/{id}")
-    public  ResponseEntity<VaccineDto> update(@PathVariable long id, @RequestBody VaccineDto data){
+    public  ResponseEntity<VaccineDto> update(@PathVariable long id, @RequestBody @Valid VaccineDto data){
         log.info("Update Vaccine. id= " + id +" Vaccine = " + data);
         return ResponseEntity.ok(this.vaccineService.update(id,data));
     }

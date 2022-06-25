@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class PersonVaccineServiceImp implements PersonVaccineService {
-    public final PersonVaccineRepository personVaccineRepository;
+    private final PersonVaccineRepository personVaccineRepository;
 
     /**
      * {@inheritDoc}
