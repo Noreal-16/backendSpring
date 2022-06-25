@@ -19,26 +19,31 @@ public class VaccineController {
 
     @GetMapping
     public ResponseEntity<List<VaccineDto>> getAll(){
+        log.info("Get all.");
         return ResponseEntity.ok(this.vaccineService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<VaccineDto> getById(@PathVariable long id){
+        log.info("Get by Id. id ="+id);
         return ResponseEntity.ok(this.vaccineService.getById(id));
     }
 
     @PostMapping
     public ResponseEntity<VaccineDto> create(@RequestBody VaccineDto data){
+        log.info("Create Vaccine. Vaccine = " + data);
         return ResponseEntity.ok(this.vaccineService.create(data));
     }
 
     @PutMapping("/{id}")
     public  ResponseEntity<VaccineDto> update(@PathVariable long id, @RequestBody VaccineDto data){
+        log.info("Update Vaccine. id= " + id +" Vaccine = " + data);
         return ResponseEntity.ok(this.vaccineService.update(id,data));
     }
 
     @DeleteMapping("/{id}")
     public  ResponseEntity<Long> delete(@PathVariable long id){
+        log.info("Deleye by Id. id ="+id);
         return ResponseEntity.ok(this.vaccineService.deleteById(id));
     }
 }
